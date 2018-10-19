@@ -16,11 +16,21 @@ public class Control: MonoBehaviour {
 	}
 	public void NextScene()
 	{
-		SceneManager.LoadScene("Demo");
-
-
+		StateManager.curState = 2;
+		StateManager.levelStartTimer = 3.0f;
+		SceneManager.LoadScene("Level1");
 	}
 
+    public static void EndGame()
+    {
+        SceneManager.LoadScene("EndGame");
+    }
+
+    public void MainMenu()
+    {
+        StateManager.curState = 1;
+        SceneManager.LoadScene("Menu");
+    }
 }
 
 
